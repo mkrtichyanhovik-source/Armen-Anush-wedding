@@ -1,173 +1,393 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Մեր Հարսանիքը | Մենք ամուսնանում ենք</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #fdfbf7;
-            --text-color: #4a4a4a;
-            --accent-color: #b76e79; /* Rose Gold */
-            --gold-color: #d4af37;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Արմեն &amp; Անուշ — Հրավեր</title>
+<meta name="description" content="Արմենի և Անուշի հարսանիքի հրավիրատոմսը">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@400;500;600&family=Noto+Sans+Armenian:wght@300;400;500&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            text-align: center;
-        }
+<style>
+  :root{
+    --bg: #faf9f5;
+    --bg-panel: #f3f1ea;
+    --ink: #23231f;
+    --ink-soft: #5c5b52;
+    --accent: #8b9a76;      /* sage */
+    --accent-line: #c9bfa4; /* warm taupe */
+    --line: #ddd8c9;
+    --max: 640px;
+  }
 
-        /* Hero Section */
-        .hero {
-            padding: 80px 20px;
-            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80') center/cover;
-            border-bottom: 2px solid var(--gold-color);
-        }
-        .hero h4 { font-size: 1.5rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-color); margin-bottom: 10px;}
-        .hero h1 { font-family: 'Great Vibes', cursive; font-size: 5rem; color: var(--accent-color); margin-bottom: 20px; font-weight: normal;}
-        .hero p { font-size: 1.5rem; font-weight: 600; }
+  *{ box-sizing: border-box; }
 
-        /* Countdown */
-        .countdown {
-            padding: 50px 20px;
-            background-color: #fff;
-        }
-        .countdown h2 { font-size: 2rem; margin-bottom: 30px; color: var(--accent-color); }
-        .timer { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .time-box {
-            background: var(--bg-color);
-            border: 1px solid var(--gold-color);
-            border-radius: 10px;
-            padding: 20px;
-            min-width: 100px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .time-box span { display: block; font-size: 2.5rem; font-weight: 600; color: var(--accent-color); }
-        .time-box p { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+  html{ scroll-behavior: smooth; }
 
-        /* Details */
-        .details { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
-        .details h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--accent-color); font-family: 'Great Vibes', cursive; font-weight: normal;}
-        .events { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; }
-        .event-card { flex: 1; min-width: 280px; padding: 30px; border: 1px solid #eee; border-radius: 15px; background: #fff; }
-        .event-card h3 { font-size: 1.8rem; color: var(--gold-color); margin-bottom: 15px; }
-        .event-card p { font-size: 1.2rem; margin-bottom: 10px; }
-        .icon { font-size: 2.5rem; margin-bottom: 15px; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans Armenian", sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        /* RSVP */
-        .rsvp {
-            padding: 60px 20px;
-            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
-            color: #fff;
-        }
-        .rsvp h2 { font-family: 'Great Vibes', cursive; font-size: 3rem; margin-bottom: 20px; font-weight: normal;}
-        .rsvp p { font-size: 1.3rem; margin-bottom: 30px; }
-        .rsvp-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: #fff;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .rsvp-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+  h1,h2,h3, .display{
+    font-family: "Noto Serif Armenian", serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
 
-        footer { padding: 20px; font-size: 0.9rem; color: #888; }
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
 
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
-            .time-box { min-width: 70px; padding: 15px; }
-            .time-box span { font-size: 1.8rem; }
-        }
-    </style>
+  /* ---------- Monogram / Hero ---------- */
+
+  .hero{
+    min-height: 100svh;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 64px 28px 48px;
+    position: relative;
+  }
+
+  .monogram{
+    width: 108px;
+    height: 108px;
+    border: 1px solid var(--accent-line);
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family: "Noto Serif Armenian", serif;
+    font-size: 30px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin-bottom: 34px;
+    opacity: 0;
+    animation: rise 900ms ease-out forwards;
+  }
+
+  .eyebrow{
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: rise 900ms ease-out 150ms forwards;
+  }
+
+  .names{
+    font-size: clamp(38px, 9vw, 64px);
+    line-height: 1.15;
+    opacity: 0;
+    animation: rise 1000ms ease-out 300ms forwards;
+  }
+
+  .names .amp{
+    display:block;
+    color: var(--accent);
+    font-size: 0.5em;
+    margin: 6px 0;
+  }
+
+  .lede{
+    max-width: 420px;
+    margin-top: 26px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    opacity: 0;
+    animation: rise 900ms ease-out 480ms forwards;
+  }
+
+  .hero-date{
+    margin-top: 38px;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    opacity: 0;
+    animation: rise 900ms ease-out 620ms forwards;
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom: 28px;
+    width: 1px;
+    height: 46px;
+    background: linear-gradient(var(--accent-line), transparent);
+    opacity: 0;
+    animation: rise 900ms ease-out 900ms forwards;
+  }
+
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  /* ---------- Sections ---------- */
+
+  section{
+    padding: 84px 0;
+  }
+
+  .divider{
+    width: 40px;
+    height: 1px;
+    background: var(--accent-line);
+    margin: 0 auto 28px;
+  }
+
+  .section-title{
+    text-align:center;
+    font-size: 15px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .section-lead{
+    text-align:center;
+    font-size: clamp(24px, 5vw, 32px);
+    margin-bottom: 8px;
+  }
+
+  .reveal{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 800ms ease, transform 800ms ease;
+  }
+  .reveal.in{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Countdown ---------- */
+
+  .countdown{
+    display:flex;
+    justify-content:center;
+    gap: clamp(14px, 4vw, 32px);
+    margin-top: 44px;
+    flex-wrap: wrap;
+  }
+
+  .count-item{
+    text-align:center;
+    min-width: 64px;
+  }
+
+  .count-num{
+    font-family: "Noto Serif Armenian", serif;
+    font-size: clamp(30px, 6vw, 42px);
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .count-label{
+    margin-top: 6px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Venue ---------- */
+
+  .venue{
+    background: var(--bg-panel);
+  }
+
+  .venue-card{
+    text-align:center;
+    padding: 46px 34px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+  }
+
+  .venue-name{
+    font-size: clamp(22px, 4.5vw, 28px);
+    margin-bottom: 10px;
+  }
+
+  .venue-detail{
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .venue-time{
+    display:inline-block;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+  }
+
+  .map-link{
+    display:inline-block;
+    margin-top: 26px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-line);
+    padding-bottom: 3px;
+    transition: opacity 200ms ease;
+  }
+  .map-link:hover{ opacity: 0.65; }
+  .map-link:focus-visible{ outline: 2px solid var(--accent); outline-offset: 4px; }
+
+  /* ---------- RSVP ---------- */
+
+  .rsvp{
+    text-align:center;
+  }
+
+  .rsvp-text{
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 440px;
+    margin: 0 auto 30px;
+  }
+
+  .rsvp-btn{
+    display:inline-block;
+    padding: 15px 44px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration:none;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 220ms ease, color 220ms ease;
+  }
+  .rsvp-btn:hover{ background: var(--ink); color: var(--bg); }
+  .rsvp-btn:focus-visible{ outline: 2px solid var(--accent); outline-offset: 4px; }
+
+  footer{
+    text-align:center;
+    padding: 40px 0 56px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h4>Հրավիրում ենք ձեզ</h4>
-        <h1>Անի և Արմեն</h1>
-        <p>Մեր կյանքի ամենագեղեցիկ օրը կիսելու համար</p>
-    </section>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="monogram">ԱԱ</div>
+    <div class="eyebrow">Հրավեր հարսանիքի</div>
+    <h1 class="names">
+      Արմեն
+      <span class="amp">&amp;</span>
+      Անուշ
+    </h1>
+    <p class="lede">Մեծ սիրով հրավիրում ենք Ձեզ բաժանորդակցելու մեր կյանքի ամենակարևոր օրին</p>
+    <div class="hero-date">09 · 09 · 2026</div>
+    <div class="scroll-cue"></div>
+  </section>
 
-    <!-- Countdown Timer -->
-    <section class="countdown">
-        <h2>Մինչև հարսանիքը մնաց</h2>
-        <div class="timer">
-            <div class="time-box"><span id="days">00</span><p>Օր</p></div>
-            <div class="time-box"><span id="hours">00</span><p>Ժամ</p></div>
-            <div class="time-box"><span id="minutes">00</span><p>Րոպե</p></div>
-            <div class="time-box"><span id="seconds">00</span><p>Վայրկյան</p></div>
-        </div>
-    </section>
+  <!-- ============ COUNTDOWN ============ -->
+  <section>
+    <div class="wrap reveal">
+      <p class="section-title">Մինչ օրը</p>
+      <h2 class="section-lead">Հաշվարկն սկսված է</h2>
+      <div class="countdown" id="countdown">
+        <div class="count-item"><div class="count-num" id="cd-days">00</div><div class="count-label">Օր</div></div>
+        <div class="count-item"><div class="count-num" id="cd-hours">00</div><div class="count-label">Ժամ</div></div>
+        <div class="count-item"><div class="count-num" id="cd-min">00</div><div class="count-label">Րոպե</div></div>
+        <div class="count-item"><div class="count-num" id="cd-sec">00</div><div class="count-label">Վայրկյան</div></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Event Details -->
-    <section class="details">
-        <h2>Միջոցառման մանրամասներ</h2>
-        <div class="events">
-            <div class="event-card">
-                <div class="icon">💍</div>
-                <h3>Պսակադրություն</h3>
-                <p><strong>Ժամը՝</strong> 16:00</p>
-                <p><strong>Վայրը՝</strong> Սուրբ Գայանե եկեղեցի</p>
-                <p>ք. Երևան, Վաղարշապատի փող.</p>
-            </div>
-            <div class="event-card">
-                <div class="icon">🥂</div>
-                <h3>Հարսանեկան խնջույք</h3>
-                <p><strong>Ժամը՝</strong> 19:00</p>
-                <p><strong>Վայրը՝</strong> Armenia Marriott Hotel</p>
-                <p>ք. Երևան, Ամիրյան փող. 1</p>
-            </div>
-        </div>
-    </section>
+  <!-- ============ VENUE ============ -->
+  <section class="venue">
+    <div class="wrap reveal">
+      <p class="section-title">Վայրը</p>
+      <h2 class="section-lead" style="margin-bottom:36px;">Ուր կհանդիպենք</h2>
+      <div class="venue-card">
+        <div class="venue-name">Բջնիի Սուրբ Եկեղեցի</div>
+        <div class="venue-detail">Պսակադրության արարողություն</div>
+        <div class="venue-time">09 սեպտեմբերի, 2026</div>
+        <br>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Բջնիի+Սուրբ+Եկեղեցի" target="_blank" rel="noopener">Տեսնել քարտեզի վրա</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- RSVP -->
-    <section class="rsvp">
-        <h2>Հաստատեք ձեր ներկայությունը</h2>
-        <p>Խնդրում ենք մինչև Հոկտեմբերի 1-ը հայտնել մեզ ձեր մասնակցության մասին</p>
-        <a href="mailto:your.email@example.com?subject=Հարսանիքի հրավիրատոմս - RSVP" class="rsvp-btn">RSVP / Պատասխանել</a>
-    </section>
+  <!-- ============ RSVP ============ -->
+  <section class="rsvp">
+    <div class="wrap reveal">
+      <p class="section-title">Հաստատում</p>
+      <h2 class="section-lead" style="margin-bottom:20px;">Կգա՞ք մեզ հետ</h2>
+      <p class="rsvp-text">Խնդրում ենք հաստատել Ձեր ներկայությունը մինչև օգոստոսի վերջը՝ գրելով մեզ։</p>
+      <a class="rsvp-btn" href="tel:+374XXXXXXXX">Հաստատել մասնակցությունը</a>
+    </div>
+  </section>
 
-    <footer>
-        <p>Սիրով՝ Անին և Արմենը &copy; 2026</p>
-    </footer>
+  <footer>
+    Արմեն &amp; Անուշ · 09.09.2026
+  </footer>
 
-    <script>
-        // ՓՈԽԵՔ ՀԱՐՍԱՆԻՔԻ ԱՄՍԱԹԻՎԸ ԱՅՍՏԵՂ (Տարի, Ամիս, Օր, Ժամ)
-        const weddingDate = new Date("2026-10-15T16:00:00").getTime();
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-        const countdown = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+  // Countdown to 09.09.2026 (assume local timezone, ceremony marked at 14:00 — adjust as needed)
+  const target = new Date('2026-09-09T14:00:00');
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  function updateCountdown(){
+    const now = new Date();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
 
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
 
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.querySelector(".countdown").innerHTML = "<h2>Այսօր մեր մեծ օրն է! 💍</h2>";
-            }
-        }, 1000);
-    </script>
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-min').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-sec').textContent = String(s).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
 </body>
 </html>
-
