@@ -1,551 +1,459 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Արմեն & Անուշ | 09.09.2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --gold: #D4AF37;
+  --cream: #F5F1E8;
+  --dark: #1a1a1a;
+  --text: #2c2c2c;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+}
 
-}
-.photo-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%);
-  transition: filter 0.5s;
-}
-.photo-item:hover img {
-  filter: grayscale(0%);
-}
-
-/* RSVP */
-.rsvp {
-  padding: 80px 20px;
-  background: linear-gradient(to bottom, var(--cream), #fff);
-  text-align: center;
-}
-.rsvp-title {
-  font-size: 2rem;
-  letter-spacing: 3px;
-  margin-bottom: 20px;
-}
-.rsvp-subtitle {
-  font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 50px;
-  line-height: 1.8;
-}
-.rsvp-form {
-  max-width: 500px;
-  margin: 0 auto;
+/* Seal Section */
+.seal-section {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-}
-.rsvp-buttons {
-  display: flex;
-  gap: 20px;
+  align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
+  position: relative;
+  overflow: hidden;
 }
-.rsvp-option {
-  flex: 1;
-  padding: 18px 30px;
-  border: 2px solid #ddd;
-  background: #fff;
+.seal-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.seal-label {
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards 0.5s;
+}
+.seal-container {
+  position: relative;
   cursor: pointer;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
-  transition: all 0.3s;
-  border-radius: 5px;
+  transition: transform 0.4s ease;
 }
-.rsvp-option:hover {
-  border-color: var(--gold);
-  transform: translateY(-2px);
+.seal-container:hover {
+  transform: scale(1.05);
 }
-.rsvp-option.active {
-  background: var(--gold);
-  color: #fff;
-  border-color: var(--gold);
-}
-.guest-count {
+.seal {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f0ece0 0%, #e8e4d8 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin: 20px 0;
+  position: relative;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.15),
+    inset 0 2px 10px rgba(255,255,255,0.8),
+    inset 0 -2px 10px rgba(0,0,0,0.05),
+    0 0 0 8px rgba(212, 175, 55, 0.1),
+    0 0 0 12px rgba(212, 175, 55, 0.05);
+  border: 3px solid rgba(212, 175, 55, 0.3);
 }
-.guest-count button {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #ddd;
-  background: #fff;
+.seal::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+}
+.seal::after {
+  content: '';
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.3);
+  animation: rotate 30s linear infinite;
+}
+.seal-content {
+  text-align: center;
+  z-index: 1;
+}
+.seal-initials {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 400;
+  color: var(--dark);
+  letter-spacing: 5px;
+  line-height: 1;
+}
+.seal-amp {
   font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  border-radius: 5px;
-}
-.guest-count button:hover {
-  border-color: var(--gold);
   color: var(--gold);
+  display: block;
+  margin: 5px 0;
+  font-style: italic;
 }
-.guest-count span {
-  font-size: 1.3rem;
-  min-width: 30px;
-}
-.rsvp-submit {
-  padding: 20px 40px;
-  background: var(--dark);
-  color: #fff;
-  border: none;
-  font-size: 0.95rem;
+.seal-instruction {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #999;
   letter-spacing: 2px;
-  cursor: pointer;
-  margin-top: 20px;
-  border-radius: 5px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards 1s;
+}
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Main Content */
+.main-content {
+  display: none;
+  animation: fadeInContent 1s ease;
+}
+@keyframes fadeInContent {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 80px 20px 60px;
+  background: linear-gradient(to bottom, #fff, var(--cream));
+}
+.header-title {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+.header-subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: #999;
+  margin-bottom: 40px;
+}
+.scroll-indicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  animation: bounce 2s infinite;
+  z-index: 100;
+}
+.scroll-arrow {
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+.scroll-arrow::before {
+  content: '↓';
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+.scroll-text {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #999;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Countdown */
+.countdown-section {
+  padding: 120px 20px;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80') center/cover fixed;
+  position: relative;
+}
+.countdown-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+.countdown-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+.countdown-title {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.countdown-item {
+  text-align: center;
+  padding: 20px;
+  min-width: 100px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+.countdown-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+.countdown-label {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #ccc;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Calendar */
+.calendar-section {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+.calendar-title {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
+.calendar {
+  max-width: 400px;
+  margin: 0 auto;
+  background: var(--cream);
+  padding: 30px;
+  border-radius: 10px;
+}
+.calendar-header {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+.calendar-day-header {
+  font-size: 0.75rem;
+  color: #999;
+  padding: 10px 5px;
+  text-align: center;
+}
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  border-radius: 50%;
   transition: all 0.3s;
 }
-.rsvp-submit:hover {
+.calendar-day.highlighted {
   background: var(--gold);
-  transform: translateY(-2px);
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
-.rsvp-phone {
-  margin-top: 30px;
+
+/* Message */
+.message {
+  padding: 80px 20px;
+';
+  window.scrollTo(0, 0);
+  text-align: center;
+  background: linear-gradient(to bottom, var(--cream), #fff);
+}
+.message-text {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 2;
+  color: var(--text);
+  font-style: italic;
+}
+
+/* Schedule */
+.schedule {
+  padding: 80px 20px;
+  background: #fff;
+}
+.schedule-title {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  margin-bottom: 60px;
+}
+.schedule-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 30px;
+}
+.schedule-item {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  background: var(--cream);
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.schedule-item:hover {
+  transform: translateX(10px);
+}
+.schedule-time {
+  font-size: 1.5rem;
+  color: var(--gold);
+  min-width: 100px;
+  font-weight: 500;
+}
+.schedule-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+.schedule-info p {
   font-size: 0.9rem;
   color: #999;
 }
-.rsvp-phone a {
-  color: var(--gold);
-  text-decoration: none;
-}
 
-/* Final Photo Section */
-.final-photo-section {
-  padding: 0;
-  background: var(--dark);
+/* Locations */
+.locations {
+  padding: 80px 20px;
+  background: var(--cream);
 }
-.final-photo {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  filter: grayscale(100%);
-  transition: filter 1s;
-}
-.final-photo:hover {
-  filter: grayscale(0%);
-}
-
-/* Footer */
-.footer {
+.locations-title {
   text-align: center;
-  padding: 40px 20px;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  margin-bottom: 60px;
+}
+.locations-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+}
+.location-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+.location-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+.location-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.location-card a {
+  display: inline-block;
+  padding: 12px 30px;
   background: var(--dark);
   color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: all 0.3s;
 }
-.footer-names {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  margin-bottom: 10px;
+.location-card a:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
 }
-.footer-date {
-  font-size: 0.9rem;
+
+/* Photo Collage Section */
+.photo-collage-section {
+  padding: 80px 20px;
+  background: #fff;
+}
+.photo-collage-title {
+  text-align: center;
+  font-size: 1.8rem;
   letter-spacing: 3px;
-  opacity: 0.7;
+  margin-bottom: 50px;
+  color: var(--dark);
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .header-title {
-    font-size: 2rem;
-  }
-  .countdown-number {
-    font-size: 2.5rem;
-  }
-  .photo-collage {
-    grid-template-columns: 1fr;
-  }
-  .schedule-item {
-    flex-direction: column;
-    text-align: center;
-  }
-  .rsvp-buttons {
-    flex-direction: column;
-  }
+.photo-collage {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
-</style>
-</head>
-<body>
-
-<!-- Audio Element -->
-<audio id="bgMusic" loop>
-  <source src="https://www.youtube.com/watch?v=2qB2vA9vnp8" type="audio/mp4">
-</audio>
-
-<!-- Seal Section -->
-<section class="seal-section" id="sealSection">
-  <div class="seal-label">ՀԱՐՍԱՆԻՔ</div>
-  <div class="seal-container" id="sealContainer">
-    <div class="seal pulse">
-      <div class="seal-content">
-        <div class="seal-initials">Ա</div>
-        <span class="seal-amp">&</span>
-        <div class="seal-initials">Ա</div>
-      </div>
-    </div>
-  </div>
-  <div class="seal-instruction">Սեղմեք կնիքի վրա, որպեսզի բացեք</div>
-</section>
-
-<!-- Main Content -->
-<div class="main-content" id="mainContent">
-  <!-- Header -->
-  <header class="header">
-    <h1 class="header-title">Արմեն & Անուշ</h1>
-    <p class="header-subtitle">Հարսանիքի հրավեր</p>
-    <p style="font-size: 0.9rem; color: #666; max-width: 600px; margin: 0 auto; line-height: 1.8;">
-      Սիրով հրավիրում ենք Ձեզ կիսելու մեզ հետ մեր կյանքի ամենակարևոր օրը
-    </p>
-    <p style="font-size: 2rem; margin-top: 30px; color: var(--gold);">09 · 09 · 2026</p>
-  </header>
-
-  <div class="scroll-indicator">
-    <div class="scroll-arrow"></div>
-    <div class="scroll-text">թերթեք ներքև</div>
-  </div>
-
-  <!-- Countdown -->
-  <section class="countdown-section">
-    <div class="countdown-content">
-      <h2 class="countdown-title">Մնացել է</h2>
-      <div class="countdown" id="countdown">
-        <div class="countdown-item">
-          <span class="countdown-number" id="days">--</span>
-          <span class="countdown-label">օր</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="hours">--</span>
-          <span class="countdown-label">ժամ</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="minutes">--</span>
-          <span class="countdown-label">րոպե</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="seconds">--</span>
-          <span class="countdown-label">վրկ</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Calendar -->
-  <section class="calendar-section">
-    <h2 class="calendar-title">Ամսաթիվ · շեք օրացույցում</h2>
-    <div class="calendar">
-      <div class="calendar-header">եպտեմբեր 2026</div>
-      <div class="calendar-grid">
-        <div class="calendar-day-header">րկ</div>
-        <div class="calendar-day-header">Երք</div>
-        <div class="calendar-day-header">Չրք</div>
-        <div class="calendar-day-header">Հնգ</div>
-        <div class="calendar-day-header">Ուրբ</div>
-        <div class="calendar-day-header">Շբթ</div>
-        <div class="calendar-day-header">Կիր</div>
-        <div class="calendar-day">1</div>
-        <div class="calendar-day">2</div>
-        <div class="calendar-day">3</div>
-        <div class="calendar-day">4</div>
-        <div class="calendar-day">5</div>
-        <div class="calendar-day">6</div>
-        <div class="calendar-day">7</div>
-        <div class="calendar-day">8</div>
-        <div class="calendar-day highlighted">9</div>
-        <div class="calendar-day">10</div>
-        <div class="calendar-day">11</div>
-        <div class="calendar-day">12</div>
-        <div class="calendar-day">13</div>
-        <div class="calendar-day">14</div>
-        <div class="calendar-day">15</div>
-        <div class="calendar-day">16</div>
-        <div class="calendar-day">17</div>
-        <div class="calendar-day">18</div>
-        <div class="calendar-day">19</div>
-        <div class="calendar-day">20</div>
-        <div class="calendar-day">21</div>
-        <div class="calendar-day">22</div>
-        <div class="calendar-day">23</div>
-        <div class="calendar-day">24</div>
-        <div class="calendar-day">25</div>
-        <div class="calendar-day">26</div>
-        <div class="calendar-day">27</div>
-        <div class="calendar-day">28</div>
-        <div class="calendar-day">29</div>
-        <div class="calendar-day">30</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Message -->
-  <section class="message">
-    <p class="message-text">
-      Հին քարե եկեղեցու լռությունից մինչև երեկոյան լույսերով դահլի,<br>
-      այս օրը կսկսվի Ձեր ներկայությամբ։<br>
-      պասում ենք Ձեզ լինելու մեր ուրախության վկան։
-    </p>
-  </section>
-
-  <!-- Schedule -->
-  <section class="schedule">
-    <h2 class="schedule-title">Ժամանակացույց · Օրվա ծրագիրը</h2>
-    <div class="schedule-grid">
-      <div class="schedule-item">
-        <div class="schedule-time">12:00</div>
-        <div class="schedule-info">
-          <h3>Հարսի տուն</h3>
-          <p>Հանդիպում և մեկնարկ</p>
-        </div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">13:30</div>
-        <div class="schedule-info">
-          <h3>Պսակադրություն</h3>
-          <p>Ս. Աստվածածին եկեղեցի, Բջնի</p>
-        </div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">17:30</div>
-        <div class="schedule-info">
-          <h3>Հարսանյաց խնջույք</h3>
-          <p>Palais Wedding Hall, Հրազդան</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Locations -->
-  <section class="locations">
-    <h2 class="locations-title">այրը · Ուր կլինենք</h2>
-    <div class="locations-grid">
-      <div class="location-card">
-        <h3>Եկեղեցի · 13:30</h3>
-        <p>Ս. Աստվածածին եկեղեցի<br>Ժամը 13:30 · գ. Բջնի, ոտայքի մարզ</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=40.4612499,44.6500678" target="_blank">Բացել քարտեզը</a>
-      </div>
-      <div class="location-card">
-        <h3>Հարսանյաց սրահ · 17:30</h3>
-        <p>Palais Wedding Hall<br>Ժամը 17:30 · Կամոյի փող. 3, Հրազդան</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=40.5010657,44.7532881" target="_blank">Բացել քարտեզը</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Photo Collage -->
-  <section class="photo-collage-section">
-    <h2 class="photo-collage-title">Մեր պահերը</h2>
-    <div class="photo-collage">
-      <div class="photo-item">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Wedding photo 1">
-      </div>
-      <div class="photo-item">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Wedding photo 2">
-      </div>
-      <div class="photo-item">
-        <img src="https  
-  // Try to play music
-  const music =://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80" alt="Wedding photo 3">
-      </div>
-    </div>
-  </section>
-
-  <!-- RSVP -->
-  <section class="rsvp">
-    <h2 class="rsvp-title">Հաստատում · Կսպասենք Ձեզ</h2>
-    <p class="rsvp-subtitle">
-      Խնդրում ենք հաստատել Ձեր մասնակցությունը՝<br>
-      որպեսզի կարողանանք պատրաստվել այս րվան Ձեզ համար։
-    </p>
-    <form class="rsvp-form" id="rsvpForm">
-      <div class="rsvp-buttons">
-        <button type="button" class="rsvp-option" data-value="bride">Հարսի հյուր</button>
-        <button type="button" class="rsvp-option" data-value="groom">Փեսայի հյուր</button>
-      </div>
-      <input type="hidden" id="guestType" required>
-      <div class="guest-count">
-        <span>Հյուրերի քանակ</span>
-        <button type="button" id="decreaseBtn">−</button>
-        <span id="guestCount">1</span>
-        <button type="button" id="increaseBtn">+</button>
-      </div>
-      <button type="submit" class="rsvp-submit">Հաստատել մասնակցությունը</button>
-    </form>
-    <p class="rsvp-phone">
-      կամ զանգահարեք՝ <a href="tel:+37493222868">093 222 868</a>
-    </p>
-  </section>
-
-  <!-- Final Photo -->
-  <section class="final-photo-section">
-    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80" alt="Final wedding photo" class="final-photo">
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-names">Արմեն & Անուշ</div>
-    <div class="footer-date">09 · 09 · 2026</div>
-  </footer>
-</div>
-
-<script>
-// Seal click handler
-document.getElementById('sealContainer').addEventListener('click', function() {
-  document.getElementById('sealSection').style.display = 'none';
-  document.getElementById('mainContent').style.display = 'block';
-  window.scrollTo(0, 0);
-  
-  // Try to play music
-  const music = document.getElementById('bgMusic');
-  music.play().catch document.getElementById('bgMusic');
-  music.play().catch(e => console.log('Audio play failed:', e));
-(e => console.log('Audio play failed:', e));
-});
-
-// Countdown
-function updateCountdown() {
-});
-
-// Countdown
-function updateCountdown() {
-  const weddingDate = new Date('September 9,  const weddingDate = new Date('September 9, 2026 12:00: 2026 12:00:00').getTime();
-  const now = new Date00').getTime();
-  const now = new Date().getTime();
-  const distance = weddingDate - now().getTime();
-  const distance = weddingDate - now;
-
-  const days = Math.floor(distance / (1;
-
-  const days = Math.floor(distance / (1000 * 60 * 60 *000 * 60 * 60 * 24));
-  const hours = Math.floor(( 24));
-  const hours = Math.floor((distance % (1000 * 60 *distance % (1000 * 60 * 60 * 24)) / (10 60 * 24)) / (1000 * 60 * 60));
-00 * 60 * 60));
-  const minutes = Math.floor((distance % (10  const minutes = Math.floor((distance % (1000 * 60 * 60)) /00 * 60 * 60)) / (1000 * 60));
-  (1000 * 60));
-  const seconds = Math.floor((distance % (100 const seconds = Math.floor((distance % (1000 * 60)) / 10000 * 60)) / 1000);
-
-  document.getElementById('days').textContent = String(days);
-
-  document.getElementById('days').textContent = String(days).padStart(2, '0');
-  document).padStart(2, '0');
-  document.getElementById('hours').textContent = String(hours).padStart(.getElementById('hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutes').2, '0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0textContent = String(minutes).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(seconds');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+.photo-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  aspect-ratio: 3/4;
 }
-
-).padStart(2, '0');
-}
-
-updateCountdown();
-setInterval(updateCountdown, updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// RSVP Form
-const r1000);
-
-// RSVP Form
-const rsvpOptions = document.querySelectorAll('.rsvp-option');
-constsvpOptions = document.querySelectorAll('.rsvp-option');
-const guestTypeInput = document.getElementById('guestType');
-const guestTypeInput = document.getElementById('guestType');
-const decreaseBtn = document.getElementById('decreaseBtn');
-const decreaseBtn = document.getElementById('decreaseBtn');
-const increaseBtn = document.getElementById('increaseBtn');
-const guest increaseBtn = document.getElementById('increaseBtn');
-const guestCountSpan = document.getElementById('guestCount');
-let guestCountSpan = document.getElementById('guestCount');
-let guestCount = 1;
-
-rsvpOptions.forEach(option =>Count = 1;
-
-rsvpOptions.forEach(option => {
-  option.addEventListener('click', function() {
- {
-  option.addEventListener('click', function() {
-    rsvpOptions.forEach(opt => opt.classList.remove('active    rsvpOptions.forEach(opt => opt.classList.remove('active'));
-    this.classList.add('active');
-    guest'));
-    this.classList.add('active');
-    guestTypeInput.value = this.dataset.value;
-  });
-TypeInput.value = this.dataset.value;
-  });
-});
-
-decreaseBtn.addEventListener('click', () => {});
-
-decreaseBtn.addEventListener('click', () => {
-  if (guestCount > 1) {
-
-  if (guestCount > 1) {
-    guestCount--;
-    guestCountSpan.textContent = guest    guestCount--;
-    guestCountSpan.textContent = guestCount;
-  }
-});
-
-increaseBtn.addEventListener('Count;
-  }
-});
-
-increaseBtn.addEventListener('click', () => {
-  guestCount++;
- click', () => {
-  guestCount++;
-  guestCountSpan.textContent = guestCount;
-});
-
-document guestCountSpan.textContent = guestCount;
-});
-
-document.getElementById('rsvpForm').addEventListener('submit', function(e.getElementById('rsvpForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  if (!guest) {
-  e.preventDefault();
-  if (!guestTypeInput.value) {
-    alert('ԽնTypeInput.value) {
-    alert('Խնդրում ենք ընտրել հդրում ենք ընտրել հյուրի տեսակը');
-    returnյուրի տեսակը');
-    return;
-  }
-  alert('Շնոր;
-  }
-  alert('Շնորհակալություն! Ձեր մասնհակալություն! Ձեր մասնակցությունը հաստատված է։ակցությունը հաստատված է։');
-  this.reset();
-  rsvpOptions.forEach');
-  this.reset();
-  rsvpOptions.forEach(opt => opt.classList.remove('active'));
-  guestCount(opt => opt.classList.remove('active'));
-  guestCount = 1;
-  guestCountSpan.textContent = guest = 1;
-  guestCountSpan.textContent = guestCount;
-});
-
-// Smooth scroll
-document.querySelectorAll('Count;
-});
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchora[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scroll'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }IntoView({ behavior: 'smooth' });
-    }
-  });
-});
-</script>
-
-  });
-});
-</script>
-</body>
-</html>
+.photo-item:hover {
+  transform: translateY(-10px);
